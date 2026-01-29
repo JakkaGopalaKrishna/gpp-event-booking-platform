@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "React Conference 2024",
+    "description": "An annual conference for React developers.",
+    "start": "2024-10-15T09:00:00",
+    "end": "2024-10-17T17:00:00",
+    "category": "Technology",
+    "location": "Online",
+    "price": 100
+  },
+  {
+    "id": 2,
+    "title": "Live Music Fest",
+    "description": "A weekend of live music from top artists.",
+    "start": "2024-11-05T18:00:00",
+    "end": "2024-11-06T23:00:00",
+    "category": "Music",
+    "location": "City Park",
+    "price": 75
+  }
+]
