@@ -1,16 +1,110 @@
-# React + Vite
+# Interactive Event Booking Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is an interactive, multi-page Event Booking Platform built using React.  
+It allows users to discover events, view them on a calendar, book tickets, generate QR code tickets, and manage their bookings through a personal dashboard.
 
-Currently, two official plugins are available:
+The application is fully frontend-based, uses mock data, and is containerized with Docker for easy deployment.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
+- React (Vite)
+- React Router DOM
+- Redux Toolkit
+- Tailwind CSS
+- react-big-calendar
+- date-fns
+- qrcode.react
+- Docker
+- Nginx
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
+- Event listing with category-based filtering
+- Interactive calendar view of events
+- Event detail page with full information
+- Add-to-Google-Calendar integration
+- Ticket booking form
+- Booking confirmation with QR code
+- User dashboard showing booked events
+- LocalStorage-based data persistence
+- Dockerized production build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Project Structure
+```
+event-booking-platform/
+├── Dockerfile
+├── docker-compose.yml
+├── .env.example
+├── README.md
+├── package.json
+└── src/
+    ├── data/
+    ├── pages/
+    ├── components/
+    ├── router/
+    ├── features/
+    ├── app/
+    └── utils/
+```
+
+---
+
+## Setup & Run (Local Development)
+```bash
+npm install
+npm run dev
+```
+
+Open in browser:
+```
+http://localhost:5173
+```
+
+---
+
+## Run with Docker (Production)
+```bash
+docker-compose up --build
+```
+
+Open in browser:
+```
+http://localhost:3000
+```
+
+---
+
+## Application Routes
+- `/` – Home page (event listing)
+- `/calendar` – Calendar view
+- `/events/:id` – Event detail page
+- `/booking/:id` – Ticket booking page
+- `/confirmation` – Booking confirmation page
+- `/dashboard` – User dashboard
+
+---
+
+## Environment Variables
+Create an environment file using the template:
+```
+.env.example
+```
+
+Example:
+```env
+REACT_APP_API_BASE_URL=mock
+```
+
+---
+
+## Notes
+- This project uses mock data only (no backend).
+- All bookings are stored in browser LocalStorage.
+- Designed to meet all mandatory task requirements.
+
+---
