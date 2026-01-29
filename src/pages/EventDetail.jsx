@@ -2,10 +2,13 @@ import { useParams } from "react-router-dom";
 import events from "../data/events.json";
 import { format } from "date-fns";
 import { getGoogleCalendarLink } from "../utils/googleCalendar";
+import { useNavigate } from "react-router-dom";
 
 export default function EventDetail() {
   const { id } = useParams();
   const event = events.find((e) => e.id === Number(id));
+  const navigate = useNavigate();
+
 
   if (!event) return <div>Event not found</div>;
 
@@ -20,6 +23,9 @@ export default function EventDetail() {
       <p data-testid="event-detail-date">
         {format(new Date(event.start), "PPpp")}
       </p>
+      <p data-testid="event-detail-location">
+        {event.location}
+      </p>
       <a
         data-testid="add-to-calendar-link"
         href={getGoogleCalendarLink(event)}
@@ -27,11 +33,9 @@ export default function EventDetail() {
        >
         Add to Google Calendar
       </a>
-
-
-      <p data-testid="event-detail-location">
-        {event.location}
-      </p>
+      <button onClick={() => navigate(`/booking/${event.id}`)}>
+        Book Tickets
+      </button>
     </div>
   );
 }
